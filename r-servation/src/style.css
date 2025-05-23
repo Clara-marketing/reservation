@@ -1,0 +1,808 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.cdnfonts.com/css/cubano");
+
+:root {
+  --jaune: #f0e400;
+  --blanc: #ffffff;
+  --noir: #161616;
+  --vert: #2cad6e;
+  --violet: #7b2182;
+  --bleu: #00b3ba;
+  --rouge: #d20049;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--noir);
+  color: white;
+}
+
+/* -------- HEADER -------- */
+
+header {
+  background-color: var(--noir);
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 60px;
+}
+
+nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+  font-family: "Cubano", sans-serif;
+}
+
+.menu > li > a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.menu > li > a:hover {
+  color: var(--jaune);
+}
+
+/* -------- SUBMENU -------- */
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: var(--vert);
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  min-width: 200px;
+  border-radius: 5px;
+}
+
+.submenu li a {
+  display: block;
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.submenu li a:hover {
+  color: var(--jaune);
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+
+/* -------- ACTIONS & BOUTONS -------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* BOUTON VIDE */
+.btn-vide {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  font-family: "Cubano", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-vide:hover {
+  color: var(--jaune);
+  border-color: var(--jaune);
+}
+
+/* BOUTON REMPLIT */
+.btn-remplit {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--jaune);
+  color: var(--noir);
+  padding: 12px 24px;
+  font-family: "Cubano", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+
+.btn-remplit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--vert);
+  z-index: 0;
+  transition: width 0.4s ease;
+}
+
+.btn-remplit:hover::before {
+  width: 100%;
+}
+
+.btn-remplit span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-remplit:hover span {
+  color: white;
+}
+
+.hero-resa {
+  position: relative;
+  height: 100vh;
+  background: url("https://i.postimg.cc/NF96DKNB/Header-web.jpg") center/cover
+    no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--blanc);
+  overflow: hidden;
+}
+
+.hero-resa .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.6); /* voile sombre */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-family: "Cubano", sans-serif;
+  font-size: 60px;
+  margin: 0;
+}
+
+.hero-content p {
+  font-family: "Cubano", sans-serif;
+  font-size: 22px;
+  color: var(--jaune);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.scroll-down {
+  margin-top: 40px;
+  font-size: 30px;
+  color: var(--jaune);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* 🧩 Section widget (contenant principal) */
+
+:root {
+  --jaune: #f0e400;
+  --blanc: #ffffff;
+  --noir: #161616;
+  --vert: #2cad6e;
+  --violet: #7b2182;
+  --bleu: #00b3ba;
+  --rouge: #d20049;
+
+  --color-primary: var(--jaune);
+  --color-accent: var(--vert);
+  --color-highlight: var(--vert);
+  --color-button-primary: var(--jaune);
+  --color-button-primary-hover: var(--vert);
+  --color-warning: var(--jaune);
+  --color-danger: var(--rouge);
+  --color-active-step: var(--jaune);
+}
+
+/* BODY GENERAL */
+body,
+html {
+  background-color: var(--noir) !important;
+  color: var(--blanc) !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/* TYPOGRAPHIE */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cubano", sans-serif !important;
+  color: var(--jaune) !important;
+}
+
+/* BOUTONS */
+button,
+.forescape-catalog button,
+.forescape-cart button {
+  background-color: var(--color-button-primary) !important;
+  color: var(--noir) !important;
+  font-family: "Cubano", sans-serif !important;
+  border-radius: 10px !important;
+  padding: 12px 24px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+button:hover,
+.forescape-catalog button:hover,
+.forescape-cart button:hover {
+  background-color: var(--color-button-primary-hover) !important;
+  color: var(--blanc) !important;
+}
+
+/* Ã‰TAPES EN HAUT */
+.forescape-catalog .stepper__step,
+.forescape-catalog .stepper__label {
+  color: var(--blanc) !important;
+  font-family: "Cubano", sans-serif !important;
+}
+
+.forescape-catalog .stepper__step--active .stepper__number,
+.forescape-catalog .stepper__step--active .stepper__label {
+  background-color: var(--jaune) !important;
+  color: var(--noir) !important;
+}
+
+.forescape-catalog .stepper__step--upcoming .stepper__number,
+.forescape-catalog .stepper__step--upcoming .stepper__label {
+  background-color: transparent !important;
+  color: var(--blanc) !important;
+  opacity: 0.7 !important;
+}
+
+/* CALENDRIER */
+.forescape-catalog .day--today,
+.forescape-catalog .day--selected,
+.forescape-catalog .day--available:hover {
+  background-color: var(--jaune) !important;
+  color: var(--noir) !important;
+  border-color: var(--jaune) !important;
+}
+
+.forescape-catalog .day--unavailable {
+  border-color: #999 !important;
+  background-color: transparent !important;
+}
+
+/* PANIER */
+.forescape-cart-icon {
+  background-color: var(--jaune) !important;
+  color: var(--noir) !important;
+  border-radius: 10px !important;
+}
+
+/* MARGE SUPÃ‰RIEURE */
+.widget-section {
+  margin-top: 60px;
+}
+
+/* 💡 Étapes : Réservation / Options / Validation */
+.f-catalog-nav-item-button-ste {
+  background-color: #f0e400 !important; /* jaune */
+  color: #161616 !important; /* noir */
+  border-radius: 50%;
+}
+.f-catalog-nav-item--active .f-catalog-nav-item-button-ste {
+  background-color: #2cad6e !important; /* vert */
+  color: white !important;
+}
+
+/* 💡 Boutons + et - */
+.f-player-picker-button {
+  background-color: #f0e400 !important;
+  color: #161616 !important;
+  font-weight: bold;
+  border: none !important;
+}
+.f-player-picker-button:hover {
+  background-color: #2cad6e !important;
+  color: white !important;
+}
+
+/* 💡 Bouton AJOUTER AU PANIER */
+.f-button--primary,
+.f-button--primary:disabled {
+  background-color: #f0e400 !important;
+  color: #161616 !important;
+  font-family: "Cubano", sans-serif !important;
+}
+.f-button--primary:hover {
+  background-color: #2cad6e !important;
+  color: white !important;
+}
+
+/* 💡 Fix panier top droit */
+.f-header-cart-button {
+  background-color: #f0e400 !important;
+  color: #161616 !important;
+}
+
+/* 💡 Option sélectionnée dans le calendrier */
+.f-calendar-day--selected {
+  background-color: #f0e400 !important;
+  color: #161616 !important;
+}
+.f-calendar-day--selected:hover {
+  background-color: #2cad6e !important;
+  color: white !important;
+}
+
+/* Étapes navigation : chiffres dans les cercles */
+.f-catalog-nav-item-button-step {
+  background-color: #f0e400 !important; /* Jaune */
+  color: #161616 !important; /* Noir */
+}
+
+/* Étape active : chiffre dans le cercle = vert */
+.f-catalog-nav-item--active .f-catalog-nav-item-button-step {
+  background-color: #2cad6e !important; /* Vert */
+  color: white !important;
+}
+
+/* Texte à droite du chiffre (Réservation, Options, etc.) */
+.f-catalog-nav-item-button-content {
+  background-color: transparent !important; /* Supprime le fond rose/marron */
+  color: white !important; /* Texte blanc */
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
+}
+
+/* 🛒 STYLE BOUTON PANIER - SENSAS */
+
+/* Supprime tous les fonds/bords orange autour du bouton */
+.f-cart-content {
+  --f-cart-content-bg-color: transparent !important;
+  --f-cart-content-border-color: transparent !important;
+  --f-cart-content-padding: 0px !important;
+  --f-cart-content-border-width: 0px !important;
+
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+forescape {
+  --f-cart-bg-color: transparent !important;
+  --f-cart-border-color: transparent !important;
+  --f-cart-border-width: 0px !important;
+  --f-cart-text-color: #161616 !important; /* Texte noir */
+}
+
+
+
+
+/* Applique la charte graphique SENSAS au bouton panier */
+.f-cart-button {
+  background-color: #f0e400 !important; /* Jaune */
+  color: #161616 !important; /* Noir */
+  font-family: "Cubano", sans-serif !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+  border-radius: 14px !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+
+/* Effet au survol */
+.f-cart-button:hover {
+  background-color: #2cad6e !important; /* Vert */
+  color: white !important;
+}
+
+/* Nombre d’articles dans le panier */
+.f-cart-icon-count {
+  color: #161616 !important;
+  font-weight: bold !important;
+}
+
+/* 🌚 Style de base pour chaque filtre */
+.f-shop-filters-item {
+  background-color: transparent !important;
+  color: white !important;
+  border: none !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500;
+  padding: 8px 14px;
+  margin: 0 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.f-block-title {
+  font-family: "Cubano", sans-serif !important;
+}
+
+/* 🟡 Style du filtre sélectionné */
+.f-shop-filters-item.f-shop-filters-item--active {
+  background-color: #f0e400 !important; /* Jaune SENSAS */
+  color: #161616 !important; /* Texte noir */
+  font-weight: 700;
+}
+
+/* 🎯 Emoji inclus dans le texte = hérite la couleur */
+.f-shop-filters-item span {
+  color: inherit !important;
+}
+
+/* 🟨 Fond jaune + texte noir pour les blocs .f-highlight.f-p-4 */
+.f-highlight.f-p-4 {
+  background-color: #f0e400 !important; /* Jaune SENSAS */
+  color: #161616 !important; /* Texte noir */
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
+  padding: 16px !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+.reservation-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #F0E400; /* Jaune SENSAS */
+  padding: 30px 20px;
+  flex-wrap: wrap;
+}
+
+.reservation-steps .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 80px;
+}
+
+.reservation-steps .step img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.reservation-steps .step p {
+  font-family: "Cubano", sans-serif;
+  font-size: 14px;
+  color: #161616; /* Noir */
+  margin: 0;
+}
+
+/* 🎯 Boutons +/- pour sélection de quantité */
+.f-quantity-picker-button {
+  background-color: #F0E400 !important; /* Jaune SENSAS */
+  color: #161616 !important; /* Noir */
+  font-family: 'Cubano', sans-serif !important;
+  font-weight: bold !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 16px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.f-quantity-picker-button:hover {
+  background-color: #2CAD6E !important; /* Vert au survol */
+  color: white !important;
+}
+
+.widget-section {
+  margin-bottom: 80px; /* 👈 tu peux ajuster la valeur (ex. 60px ou 100px) selon ce que tu préfères */
+}
+
+/* 🎨 TARIFS SECTION */
+
+.tarif-section {
+  background-color: var(--violet);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+
+
+/* 🧱 Grille des deux blocs */
+.tarifs-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* 🧾 Cartes blanches */
+.tarif-card {
+  background-color: white;
+  color: var(--noir);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 400px;
+  flex: 1 1 300px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+/* 🟪 Titres dans les cartes */
+.tarif-card h3 {
+  font-family: "Cubano", sans-serif;
+  font-size: 20px;
+    color: var(--noir) !important;
+  margin-bottom: 20px;
+}
+
+/* 💰 Texte classique dans les cartes */
+.tarif-card p {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  margin: 6px 0;
+}
+
+/* 🟡 Séparation en pointillés */
+.tarif-card hr {
+  border: none;
+  border-top: 2px dashed var(--jaune);
+  margin: 24px 0;
+}
+
+/* ➕ Section options */
+.tarif-options h3 {
+  margin-bottom: 12px;
+}
+
+/* 🟡 Tags transformés en vrais boutons remplis */
+.tarif-tags {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.tarif-tag {
+  display: inline-block;
+  background-color: var(--jaune);
+  color: var(--noir);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: "Cubano", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tarif-tag:hover {
+  background-color: var(--vert);
+  color: white;
+}
+
+.tarif-grid {
+  display: flex;
+  gap: 40px;
+  align-items: stretch; /* 👈 assure que tous les enfants prennent la même hauteur */
+}
+
+.tarif-card {
+  flex: 1; /* 👈 prend toute la largeur disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 80px; /* ou 60px selon l'espace souhaité */
+}
+
+.bandeau-centre {
+  display: flex;
+  justify-content: center;
+  margin: 80px auto 40px auto;
+}
+
+.texte-bandeau {
+  display: inline-block;
+  background-color: #F0E400;
+  color: #161616;
+  font-family: 'Cubano', sans-serif;
+  font-size: 2rem;
+  padding: 12px 32px; /* marge autour du texte */
+  transform: rotate(-5deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: auto; /* important : largeur auto */
+}
+
+.footer-locations {
+  background-color: #2cad6e; /* Vert SENSAS */
+  color: white!important;
+  padding: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-title {
+  font-family: 'Cubano', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: white !important ;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #f0e400; /* Jaune SENSAS */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  font-family: 'Cubano', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  color : white !important;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 6px;
+}
+
+.footer-column .highlight {
+  color: #f0e400; /* Jaune SENSAS */
+  font-weight: bold;
+}
+
+.footer-bottom {
+  background-color: #161616;
+  color: white;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-bottom-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-logo p {
+  font-family: 'Cubano', sans-serif;
+  font-size: 24px;
+  margin: 0;
+  letter-spacing: 8px;
+}
+
+.footer-icons img {
+  width: 28px;
+  margin-right: 4px;
+}
+
+.social-icons img {
+  width: 32px;
+  margin-right: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-review {
+  text-align: center;
+}
+
+.footer-review img {
+  width: 80px;
+  margin-bottom: 12px;
+}
+
+.review-button {
+  background-color: white;
+  color: black;
+  font-family: 'Cubano', sans-serif;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo-sensas-img {
+  width: 120px;
+  height: auto;
+}
+
+
+
+
+
+
